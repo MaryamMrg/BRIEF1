@@ -29,23 +29,23 @@ public class Calculator {
 return Math.pow(n,m);
     }
     // racine carre
-    public static double racine(double n){
+    public static double sqrt(double n){
         if(n<0){
-            System.out.println("operation impossible");
+            System.out.println("operation impossible: Negative numbers are not defined in sqrt");
         }
         return Math.sqrt(n);
     }
     // factorielle function
-    public static long fact(int n){
-     if(n<0){
-         System.out.println("operation impossible");
-     }
-     long fact=1;
-     for(int i=1;i<=n;i++){
-         fact *=i;
-     }
-     return fact;
-
+    public static long fact(int n) {
+        if (n < 0) {
+            System.out.println("operation impossible  : negative numbers are not defined in fact");
+            return -1;
+        }
+        long fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
     }
 
 
@@ -101,9 +101,9 @@ return Math.pow(n,m);
                     System.out.println("Result : " + result);
                     break;
                 case 4: // racine
-                    System.out.print("enter the  number : ");
+                    System.out.print("enter A NON_Negative number : ");
                     num1 = scanner.nextDouble();
-                    result = racine(num1);
+                    result = sqrt(num1);
                     System.out.println("Result : " + result);
                     break;
                 case 5: //multiplication
@@ -123,11 +123,16 @@ return Math.pow(n,m);
                     System.out.println("Result : " + result);
                     break;
                 case 7://fact
-                    System.out.print("enter the  number : ");
-                    num1 = scanner.nextInt();
-                    result = fact(a);
-                    System.out.println("Result : " + result);
+                    System.out.print("Enter a non-negative number : ");
+                    a = scanner.nextInt();
+                    if (a < 0) {
+                        System.out.println("operation impossible : NON_Negative numbres are not defined in fact7" +
+                                ".");
+                    } else {
+                        System.out.println("Result: " + fact(a));
+                    }
                     break;
+
                 default:
                     System.out.println("Ops choice invalid!!");
             }
